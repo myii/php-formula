@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.38.1 <https://github.com/myii/php-formula/compare/v0.38.0...v0.38.1>`_ (2019-08-03)
+------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **deprecation:** update deprecation version number (until ``v1.0.0``\ ) (\ `1c2d03a <https://github.com/myii/php-formula/commit/1c2d03a>`_\ )
+
 `0.38.0 <https://github.com/saltstack-formulas/php-formula/compare/v0.37.1...v0.38.0>`_ (2019-08-01)
 --------------------------------------------------------------------------------------------------------
 
