@@ -1,9 +1,3 @@
-{%- from "php/map.jinja" import php with context %}
-
-include:
-  - php.deprecated
-  - php
-
-php-bcmath:
-  pkg.installed:
-    - name: {{ php.bcmath_pkg }}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set state = 'bcmath' %}
+{%- include tplroot ~ "/installed.jinja" %}

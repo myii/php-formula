@@ -1,9 +1,3 @@
-{%- from "php/map.jinja" import php with context %}
-
-include:
-  - php.deprecated
-  - php
-
-php-memcache:
-  pkg.installed:
-    - name: {{ php.memcache_pkg }}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set state = 'memcache' %}
+{%- include tplroot ~ "/installed.jinja" %}

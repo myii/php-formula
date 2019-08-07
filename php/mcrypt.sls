@@ -1,9 +1,3 @@
-{%- from "php/map.jinja" import php with context %}
-
-include:
-  - php.deprecated
-  - php
-
-php-mcrypt:
-  pkg.installed:
-    - name: {{ php.mcrypt_pkg }}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set state = 'mcrypt' %}
+{%- include tplroot ~ "/installed.jinja" %}

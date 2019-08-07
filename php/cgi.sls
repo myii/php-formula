@@ -1,9 +1,3 @@
-{%- from "php/map.jinja" import php with context %}
-
-include:
-  - php.deprecated
-  - php
-
-php-cgi:
-  pkg.installed:
-    - name: {{ php.cgi_pkg }}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set state = 'cgi' %}
+{%- include tplroot ~ "/installed.jinja" %}

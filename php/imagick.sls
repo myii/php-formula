@@ -1,9 +1,3 @@
-{%- from "php/map.jinja" import php with context %}
-
-include:
-  - php.deprecated
-  - php
-
-php-imagick:
-  pkg.installed:
-    - name: {{ php.imagick_pkg }}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set state = 'imagick' %}
+{%- include tplroot ~ "/installed.jinja" %}

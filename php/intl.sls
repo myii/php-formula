@@ -1,9 +1,3 @@
-{%- from "php/map.jinja" import php with context %}
-
-include:
-  - php.deprecated
-  - php
-
-php-intl:
-  pkg.installed:
-    - name: {{ php.intl_pkg }}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set state = 'intl' %}
+{%- include tplroot ~ "/installed.jinja" %}
