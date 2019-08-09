@@ -205,3 +205,23 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
+  - name: testcase188
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - php.ng.fpm.install
+            - php.ng.fpm.config
+            - php.ng.fpm.pools_config
+            - php.ng.modules
+            - php.ng.fpm.service
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - php
+      pillars_from_files:
+        php.sls: test/salt/pillar/testcase188.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/default
