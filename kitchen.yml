@@ -101,7 +101,7 @@ platforms:
 
 provisioner:
   name: salt_solo
-  log_level: info
+  log_level: debug
   salt_install: none
   require_chef: false
   formula: php
@@ -144,6 +144,7 @@ suites:
       state_top:
         base:
           '*':
+            - php.yaml_dump
             - php.repo
             - php.fpm.install
             - php.fpm.config
@@ -170,6 +171,7 @@ suites:
       state_top:
         base:
           '*':
+            - php.yaml_dump
             - php.repo
             - php.fpm.install
             - php.fpm.config
