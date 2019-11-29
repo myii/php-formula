@@ -97,6 +97,21 @@ platforms:
     driver:
       image: netmanagers/salt-2019.2-py2:arch-base-latest
       run_command: /usr/lib/systemd/systemd
+  - name: gentoo-stage3-2019-2-py3
+    driver:
+      # image: gentoo/portage  # no `emerge`
+      # image: gentoo/stage3-amd64:latest  # fails `emerge`
+      image: mesaguy/gentoo-systemd-boot-x86_64  # mask issue
+      # image: mesaguy/gentoo-openrc-boot-x86_64  # mask issue
+
+      provision_command:
+        - echo 'ACCEPT_KEYWORDS="~amd64"' | tee -a /etc/portage/make.conf
+        - curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+        # - sh bootstrap-salt.sh -XdPfq -x python3 stable 2019.2
+        # - sh bootstrap-salt.sh -XdPfq -x python3 stable latest
+        # - sh bootstrap-salt.sh -XdPfq -x python3 git master
+        - sh bootstrap-salt.sh
+      # run_command: /usr/lib64/systemd/systemd
 
   ## SALT `2018.3`
   - name: fedora-30-2018-3-py3
@@ -178,6 +193,7 @@ verifier:
 suites:
   - name: debian
     includes:
+      - gentoo-stage3-2019-2-py3
       - debian-10-master-py3
       - debian-10-2019-2-py3
       - debian-9-2019-2-py3
@@ -205,6 +221,7 @@ suites:
         - path: test/integration/default
   - name: ubuntu
     includes:
+      - gentoo-stage3-2019-2-py3
       - ubuntu-1804-master-py3
       - ubuntu-1804-2019-2-py3
       - ubuntu-1604-2018-3-py2
@@ -233,6 +250,7 @@ suites:
         - path: test/integration/default
   - name: redhat
     includes:
+      - gentoo-stage3-2019-2-py3
       - centos-8-master-py3
       - fedora-31-master-py3
       - amazonlinux-2-master-py2
@@ -263,6 +281,7 @@ suites:
         - path: test/integration/default
   - name: suse
     includes:
+      - gentoo-stage3-2019-2-py3
       - opensuse-leap-151-master-py3
       - opensuse-leap-151-2019-2-py3
       - opensuse-leap-151-2018-3-py2

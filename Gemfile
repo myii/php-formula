@@ -2,6 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'kitchen-docker', '>= 2.9'
+gem 'kitchen-docker', :git => 'https://github.com/myii/kitchen-docker.git', :branch => 'fix/prevent-emerge-sync-on-gentoo'
 gem 'kitchen-inspec', '>= 1.1'
 gem 'kitchen-salt', '>= 0.6.0'
