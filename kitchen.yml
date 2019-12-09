@@ -193,6 +193,7 @@ suites:
             - php.fpm.pools
             - php.modules
             - php.fpm.service
+            - php.odbc
       pillars:
         top.sls:
           base:
@@ -219,6 +220,7 @@ suites:
             - php.fpm.pools
             - php.modules
             - php.fpm.service
+            - php.odbc
       pillars:
         top.sls:
           base:
@@ -251,6 +253,7 @@ suites:
         base:
           '*':
             - php
+            - php.odbc
       pillars:
         top.sls:
           base:
@@ -272,6 +275,7 @@ suites:
         base:
           '*':
             - php
+            - php.odbc
       pillars:
         top.sls:
           base:
