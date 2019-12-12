@@ -187,19 +187,27 @@ suites:
       state_top:
         base:
           '*':
-            - php.repo
-            - php.fpm.install
-            - php.fpm.config
-            - php.fpm.pools
+            - php
             - php.modules
-            - php.fpm.service
+            # - php.repo
+            # - php.fpm.install
+            # - php.fpm.config
+            # - php.fpm.pools
+            # - php.modules
+            # - php.fpm.service
       pillars:
         top.sls:
           base:
             '*':
               - php
-      pillars_from_files:
-        php.sls: test/salt/pillar/debian.sls
+        php.sls: &php_sls_bug_207
+          php:
+            version: "7.3"
+            modules:
+              - xml
+              - curl
+    #   pillars_from_files:
+    #     php.sls: test/salt/pillar/debian.sls
     verifier:
       inspec_tests:
         - path: test/integration/default
@@ -213,21 +221,24 @@ suites:
       state_top:
         base:
           '*':
-            - php.repo
-            - php.fpm.install
-            - php.fpm.config
-            - php.fpm.pools
+            - php
             - php.modules
-            - php.fpm.service
+            # - php.repo
+            # - php.fpm.install
+            # - php.fpm.config
+            # - php.fpm.pools
+            # - php.modules
+            # - php.fpm.service
       pillars:
         top.sls:
           base:
             '*':
               - php
-              - ubuntu
-      pillars_from_files:
-        php.sls: test/salt/pillar/debian.sls
-        ubuntu.sls: test/salt/pillar/ubuntu.sls
+              # - ubuntu
+        php.sls: *php_sls_bug_207
+    #   pillars_from_files:
+    #     php.sls: test/salt/pillar/debian.sls
+    #     ubuntu.sls: test/salt/pillar/ubuntu.sls
     verifier:
       inspec_tests:
         - path: test/integration/default
@@ -251,13 +262,15 @@ suites:
         base:
           '*':
             - php
+            - php.modules
       pillars:
         top.sls:
           base:
             '*':
               - php
-      pillars_from_files:
-        php.sls: test/salt/pillar/redhat.sls
+        php.sls: *php_sls_bug_207
+    #   pillars_from_files:
+    #     php.sls: test/salt/pillar/redhat.sls
     verifier:
       inspec_tests:
         - path: test/integration/default
@@ -272,13 +285,15 @@ suites:
         base:
           '*':
             - php
+            - php.modules
       pillars:
         top.sls:
           base:
             '*':
               - php
-      pillars_from_files:
-        php.sls: test/salt/pillar/suse.sls
+        php.sls: *php_sls_bug_207
+    #   pillars_from_files:
+    #     php.sls: test/salt/pillar/suse.sls
     verifier:
       inspec_tests:
         - path: test/integration/default
