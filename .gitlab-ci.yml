@@ -125,6 +125,7 @@ rubocop:
 # the `platforms` defined in `kitchen.yml`
 debian-debian-10-master-py3: {extends: '.test_instance'}
 # ubuntu-ubuntu-1804-master-py3: {extends: '.test_instance'}
+# ubuntu-ubuntu-1604-master-py3: {extends: '.test_instance'}
 # redhat-centos-8-master-py3: {extends: '.test_instance'}
 # redhat-fedora-31-master-py3: {extends: '.test_instance'}
 # suse-opensuse-leap-151-master-py3: {extends: '.test_instance'}
